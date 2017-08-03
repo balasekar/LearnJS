@@ -19,6 +19,13 @@ if(!false){
 if(!0){
     console.log('0:false');
 }
+if(!-0){
+    console.log('-0:false');
+}
+var num = Number('num');
+if(!num){
+    console.log('NaN:false');
+}
 if(!""){
     console.log('empty str:false');
 }
