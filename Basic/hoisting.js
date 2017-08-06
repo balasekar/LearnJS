@@ -1,6 +1,9 @@
 /**
- * Created by bgnanasekar on 03/08/2017.
+ * While compiling JS code - the function declarations are hoisted first and then variable declarations
+ * to the start of the containing scope
  */
+
+
 var a = 2;
 
 foo();                    // works because `foo()`
