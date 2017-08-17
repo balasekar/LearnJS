@@ -226,6 +226,75 @@ bar(5);
 
 foo.apply(º, [2, 3]);
 
-var bar = foo.bind( ø, 4 );
+var bar = foo.bind( º, 4 );
 bar( 5 ); // a:4, b:5
 
+/**
+ * Indirection
+ * ------------
+ * we can create indirect reference to functions
+ * */
+
+function foo(){
+    console.log(this.a);
+}
+
+var a =2;
+var o = { a: 3, foo: foo};
+var p = { a:4};
+
+o.foo();
+(p.foo = o.foo)();
+
+
+/**
+ * Softening Binding
+ * -----------------
+ * softBind() is a function which is similar to bind() but it wraps the function in logic
+ * that checks the 'this' at call-time and if it's global or undefined it will revert back to the default object in soft bind
+ * */
+
+function foo() {
+    console.log("name: " + this.name);
+}
+
+var obj = { name: "obj" },
+    obj2 = { name: "obj2" },
+    obj3 = { name: "obj3" };
+
+var fooOBJ = foo.softBind( obj );
+
+fooOBJ(); // name: obj
+
+obj2.foo = foo.softBind(obj);
+obj2.foo(); // name: obj2   <---- look!!!
+
+fooOBJ.call( obj3 ); // name: obj3   <---- look!
+
+setTimeout( obj2.foo, 10 ); // name: obj   <---- falls back to soft-binding
+
+/**
+ * Lexical this
+ * ------------
+ * Normal functions abide by the above rules, but the special functions created by => "fat arrows" doesn't
+ * > this inside this function will adopt the this from its containing scope.
+ * */
+
+function foo() {
+    // return an arrow function
+    return (a) => {
+        // `this` here is lexically adopted from `foo()`
+        console.log( this.a );
+    };
+}
+
+var obj1 = {
+    a: 2
+};
+
+var obj2 = {
+    a: 3
+};
+
+var bar = foo.call( obj1 );
+bar.call( obj2 ); // 2, not 3!
