@@ -1,4 +1,4 @@
-/*
+/**
 This is a modern module written in JS which is using closure
 */
 
@@ -22,7 +22,7 @@ var MyModules = (function Manager() {
     }
 })();
 
-/*
+/**
 This is invoking the definition wrapper function for a module
 (passing in any dependencies), and storing the return value, the module’s API,
 into an internal list of modules tracked by name.

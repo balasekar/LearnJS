@@ -1,4 +1,4 @@
-/*
+/**
 *
 * Reference error -sample
 *
@@ -11,7 +11,7 @@ function foo(a) {
 foo( 2 );
 
 
-/*      Notes:
+/**     Notes:
 *
 * Here RHS look up occurs for the variable 'b' the first time, it will not be found
 * this is said as undeclared variable (not found in scope) -- it will be thrown Reference Error

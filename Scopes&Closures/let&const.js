@@ -1,4 +1,4 @@
-/*
+/**
 let is another way of declaration but it attaches variable to whatever block it contained it
 */
 var foo = true;
@@ -16,8 +16,9 @@ for(let i=0;i<5;i++){
 
 console.log(i);
 
-/*
-const will also declare a variable whose value can't be changed and it attaches itself to the block contained it
+/**
+ * > const will also declare a variable whose value can't be changed and it attaches itself to the block contained it
+ * > const objects allows its properties to be re-assigned
 */
 
 var foo = true;
@@ -30,8 +31,8 @@ if(foo){
 }
 console.log(bar);
 
-/*
- let will not hoist to the eniter scope
+/**
+ let will not hoist to the entire scope
 */
 
 {

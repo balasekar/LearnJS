@@ -33,6 +33,10 @@ if(![]){
     console.log('empty arr:false');
 }
 
+if(!null){
+    console.log('null:false');
+}
+
 var undef;
 if(!undef){
     console.log('undefined: false');

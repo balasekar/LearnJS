@@ -1,4 +1,4 @@
-/*
+/**
 When you reference a property on an object, if that property doesn't exist,
 JavaScript will automatically use that object's internal prototype reference to find another object
 to look for the property on. You could think of this almost as a fallback if the property is missing.
