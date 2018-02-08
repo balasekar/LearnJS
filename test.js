@@ -1,47 +1,20 @@
-const val = {
-  data: [
-    {
-      id: 1,
-      text: "Folder 1",
-      state: {
-        selected: false
-      },
-      children: [
-        {
-          id: 2,
-          text: "Sub Folder 1",
-          state: {
-            selected: false
-          }
-        },
-        {
-          id: 3,
-          text: "Sub Folder 2",
-          state: {
-            selected: false
-          }
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "Folder 2",
-      state: {
-        selected: true
-      },
-      children: [ ]
-    }
-  ]
-};
+let str1 = 'recede'
+let charCountList = []
+let strArr = str1.split('')
 
+strArr.forEach(val => {
+  let tmp = {}
+  tmp.val = val
+  tmp.count = strArr.filter(val1 => (val1 == val)).length
+  charCountList.push(tmp)
+})
 
-function printFolder(val1) {
-  val1.data.forEach(obj => {
-    console.log('Folder Name:', obj.text);
-    if(obj.children.length > 0){
-      printFolder(obj.children);
-    }
-    })
-}
+let strArr2 = strArr.map(val => {
+  if (charCountList.filter(item => item.val == val)[0].count > 1) {
+    return ')'
+  } else {
+    return '('
+  }
+});
 
-printFolder(val);
+console.log('strArr2:', strArr2.join(''));
